@@ -1,0 +1,13 @@
+{
+	"require": {
+	<% package_list = [] %>
+	<% @packages.each do |package, version| -%>
+		<% package_list.push("\"#{package}\": \"#{version}\"") %>
+	<% end -%>
+		<%= package_list.join(",\n\t\t") %>
+	},
+	"minimum-stability":"<%= @stability %>",
+	"config": {
+		"bin-dir": "<%= @bin_dir %>"
+	}
+}

@@ -103,3 +103,52 @@ action :create_project do
 		not_if "test -d #{new_resource.install_path}"
 	end
 end
+
+action :install_dynamic do
+	arguments = "--no-interaction --no-ansi "
+	Chef::Log.info("Install dynamic packages: #{new_resource.name}")
+
+	if new_resource.dev
+		arguments += " --dev"
+	end
+	if new_resource.prefer_source
+		arguments += " --prefer-source"
+	end
+	if new_resource.prefer_dist
+		arguments += " --prefer-dist"
+	end
+	if new_resource.keep_vcs
+		arguments += " --keep-vcs"
+	end
+	if new_resource.no_scripts
+		arguments += " --no-scripts"
+	end
+
+	directory new_resource.install_path do
+		owner "root"
+		group "root"
+		mode 00755
+		recursive true
+		action :create
+		
+		not_if "test -d #{new_resource.install_path}"
+	end
+
+	template "composer.json.erb" do
+		source "composer.json.erb"
+		cookbook "composer"
+		path "#{new_resource.install_path}/composer.json"
+		mode 0644
+		variables(
+			:bin_dir => new_resource.bin_dir,
+			:packages => new_resource.packages,
+			:stability => new_resource.stability
+		)
+	end
+
+	execute "composer install" do
+		cwd new_resource.install_path
+		command "composer install #{arguments}"
+		only_if "test -f #{new_resource.install_path}/composer.json"
+	end
+end
