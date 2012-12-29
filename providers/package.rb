@@ -73,3 +73,33 @@ action :update do
 		only_if "composer help"
 	end
 end
+
+
+action :create_project do
+	arguments = "--no-interaction --no-ansi --stability #{new_resource.stability}"
+	Chef::Log.info("Composer create-project: #{new_resource.name}")
+	
+	if new_resource.dev
+		arguments += " --dev"
+	end
+	if new_resource.prefer_source
+		arguments += " --prefer-source"
+	end
+	if new_resource.prefer_dist
+		arguments += " --prefer-dist"
+	end
+	if new_resource.keep_vcs
+		arguments += " --keep-vcs"
+	end
+	if new_resource.no_scripts
+		arguments += " --no-scripts"
+	end
+	if new_resource.repository_url
+		arguments += " --repository-url #{new_resource.repository_url}"
+	end
+
+	execute "composer create-project" do
+		command "composer create-project #{arguments} #{new_resource.name} #{new_resource.install_path}"
+		not_if "test -d #{new_resource.install_path}"
+	end
+end
