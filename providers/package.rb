@@ -108,17 +108,11 @@ action :install_dynamic do
 	arguments = "--no-interaction --no-ansi "
 	Chef::Log.info("Install dynamic packages: #{new_resource.name}")
 
-	if new_resource.dev
-		arguments += " --dev"
-	end
 	if new_resource.prefer_source
 		arguments += " --prefer-source"
 	end
 	if new_resource.prefer_dist
 		arguments += " --prefer-dist"
-	end
-	if new_resource.keep_vcs
-		arguments += " --keep-vcs"
 	end
 	if new_resource.no_scripts
 		arguments += " --no-scripts"
