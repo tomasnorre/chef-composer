@@ -1,7 +1,7 @@
 action :install do
 	Chef::Log.info("Deploy composer to: #{new_resource.target_dir}")
 
-	directory "#{new_resource.target_dir}" do
+	directory new_resource.target_dir do
 		owner new_resource.owner
 		group new_resource.group
 		mode 00755
@@ -27,6 +27,10 @@ action :install do
 
 		only_if new_resource.global
 	end
+	
+	# My state has changed so I'd better notify observers
+	new_resource.updated_by_last_action(true)
+
 end
 
 action :update do
@@ -36,13 +40,16 @@ action :update do
 		interpreter "php"
 		command "composer self-update --no-ansi --quiet --no-interaction"
 	end
+
+	# My state has changed so I'd better notify observers
+	new_resource.updated_by_last_action(true)
 end
 
 #TODO: why is remove not working?
 action :remove do
 	Chef::Log.info("Uninstall composer from location: #{new_resource.target_dir}")
 
-	directory "#{new_resource.target_dir}" do
+	directory new_resource.target_dir do
 		recursive true
 		action :remove
 	end

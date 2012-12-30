@@ -34,6 +34,9 @@ action :install do
 		
 		only_if "composer help"
 	end
+
+	# My state has changed so I'd better notify observers
+	new_resource.updated_by_last_action(true)
 end
 
 action :update do
@@ -72,6 +75,9 @@ action :update do
 		
 		only_if "composer help"
 	end
+
+	# My state has changed so I'd better notify observers
+	new_resource.updated_by_last_action(true)
 end
 
 
@@ -102,6 +108,9 @@ action :create_project do
 		command "composer create-project #{arguments} #{new_resource.name} #{new_resource.install_path}"
 		not_if "test -d #{new_resource.install_path}"
 	end
+
+	# My state has changed so I'd better notify observers
+	new_resource.updated_by_last_action(true)
 end
 
 action :install_dynamic do
@@ -145,4 +154,7 @@ action :install_dynamic do
 		command "composer install #{arguments}"
 		only_if "test -f #{new_resource.install_path}/composer.json"
 	end
+
+	# My state has changed so I'd better notify observers
+	new_resource.updated_by_last_action(true)
 end
