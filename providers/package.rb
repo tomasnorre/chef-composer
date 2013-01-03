@@ -145,6 +145,8 @@ action :install_dynamic do
 		variables(
 			:bin_dir => new_resource.bin_dir,
 			:packages => new_resource.packages,
+			:config => new_resource.config,
+			:scripts => new_resource.scripts,
 			:stability => new_resource.stability
 		)
 	end
