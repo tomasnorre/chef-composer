@@ -7,7 +7,18 @@
 		<%= package_list.join(",\n\t\t") %>
 	},
 	"minimum-stability":"<%= @stability %>",
+	"scripts": {
+	<% scripts_list = [] %>
+	<% @scripts.each do |cmd, path| -%>
+		<% scripts_list.push("\"#{cmd}\": \"#{path}\"") %>
+	<% end -%>
+		<%= scripts_list.join(",\n\t\t") %>
+	},
 	"config": {
-		"bin-dir": "<%= @bin_dir %>"
+	<% config_list = [] %>
+	<% @config.each do |cmd, path| -%>
+		<% config_list.push("\"#{cmd}\": \"#{path}\"") %>
+	<% end -%>
+		<%= config_list.join(",\n\t\t") %>
 	}
 }
