@@ -27,8 +27,6 @@ action :install do
 
 		only_if new_resource.global
 	end
-	
-	# My state has changed so I'd better notify observers
 	new_resource.updated_by_last_action(true)
 
 end
@@ -41,7 +39,6 @@ action :update do
 		command "composer self-update --no-ansi --quiet --no-interaction"
 	end
 
-	# My state has changed so I'd better notify observers
 	new_resource.updated_by_last_action(true)
 end
 
