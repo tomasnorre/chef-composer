@@ -14,6 +14,6 @@ attribute :keep_vcs, :equal_to => [true, false], :default => false
 attribute :stability, :kind_of => String, :default => "stable"
 attribute :repository_url, :kind_of => [String, NilClass]
 attribute :bin_dir, :kind_of => [String, NilClass], :default => "/usr/local/bin"
-attribute :config
-attribute :scripts
-attribute :packages
+attribute :config, :kind_of => Hash, :default => {}
+attribute :scripts, :kind_of => Hash, :default => {}
+attribute :packages, :kind_of => Hash, :default => {}
