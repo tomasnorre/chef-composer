@@ -1,9 +1,8 @@
-actions :install, :update, :create_project, :install_dynamic
+actions :install, :update, :create_project, :create
 
 default_action :install
 
-attribute :project_dir, :kind_of => String, :name_attribute => true
-attribute :install_path, :kind_of => [String, NilClass], :default => "/opt/composer-libraries"
+attribute :install_path, :kind_of => [String, NilClass], :name_attribute => true, :default => "/opt/composer-libraries"
 attribute :prefer_source, :kind_of => [String, NilClass]
 attribute :prefer_dist, :kind_of => [String, NilClass]
 attribute :dev, :equal_to => [true, false], :default => false
