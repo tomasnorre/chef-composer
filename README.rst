@@ -3,7 +3,7 @@ PHP composer chef recipe
 ++++++++++++++++++++++++
 
 :Author: Michael Klapper <development@morphodo.com>
-:Description: Chef recipe to install LAMP environments
+:Description: Chef recipe to manage/install composer packages
 :Homepage: http://www.morphodo.com
 :Tags: PHP, Composer
 
@@ -34,3 +34,8 @@ Just pass the path to the ``composer`` installation to the LWRP and call the ``u
   composer "/var/www/domain/htdocs" do
     action :update
   end
+
+Install composer packages from Packagist_
+================
+
+.. _Packagist : http://packagist.org/
