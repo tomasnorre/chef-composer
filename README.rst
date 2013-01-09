@@ -35,9 +35,8 @@ Just pass the path to the ``composer`` installation to the LWRP and call the ``u
     action :update
   end
 
-Manage composer packages from Packagist_
+Manage composer packages from Packagist_ with existing ``composer.json`` configuration file
 ================
-Usage with existing ``composer.json`` configuration file.
 
 Install packages
 ----------------
@@ -56,7 +55,10 @@ This will update all configured packages from ``composer.json``.
     action :update
   end
 
-Create a project without ``composer.json`` file
+Install packages without exiting ``composer.json`` file
+================
+
+Create a new project
 ----------------
 You can use Composer to create new projects from an existing package. This is the equivalent of doing a git clone/svn checkout followed by a composer install of the vendors.
 
@@ -67,5 +69,16 @@ The directory is not allowed to exist, it will be created during installation.
     install_path "/var/www/neos
   end
 
+Install packages with custom configuration
+----------------
+You can simply use the ``create`` action to build a new composer.json file from template and define which packages you would like to install.
+
+::
+  composer_package "Install PHP tools for development" do
+    action [:create, :update]
+    install_path "/opt/composer-libaries"
+    packages ({"phpunit/phpunit" => "3.7.*", "phing/phing" => "2.4.*"})
+    config ({"bin-dir" => "/usr/local/bin"})
+  end
 
 .. _Packagist : http://packagist.org/
