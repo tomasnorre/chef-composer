@@ -83,8 +83,7 @@ You can simply use the ``create`` action to build a new ``composer.json`` file f
 
 The composer cookbook in action
 =============
-There is a TYPO3 Flow based test plan tool PylonWorks.Essencebase_ wich uses this cookbook to setup a sandbox to provide a consistent environment to the development team.
-
+This cookbook is used to manage the PHP development dependencies easily for PylonWorks.Essencebase_ sandbox environment.
 
 .. _PylonWorks.Essencebase: //github.com/PylonWorks/essencebase-chef-recipe
 .. _Packagist : http://packagist.org/
