@@ -35,7 +35,37 @@ Just pass the path to the ``composer`` installation to the LWRP and call the ``u
     action :update
   end
 
-Install composer packages from Packagist_
+Manage composer packages from Packagist_
 ================
+Usage with existing ``composer.json`` configuration file.
+
+Install packages
+----------------
+From existing ``/var/www/domain/htdocs/composer.json`` file with option ``--dev`` set.
+::
+  composer_package "/var/www/domain/htdocs" do
+    action :install
+    dev true
+  end
+
+Update packages
+----------------
+This will update all configured packages from ``composer.json``.
+::
+  composer_package "/var/www/domain/htdocs" do
+    action :update
+  end
+
+Create a project without ``composer.json`` file
+----------------
+You can use Composer to create new projects from an existing package. This is the equivalent of doing a git clone/svn checkout followed by a composer install of the vendors.
+
+The directory is not allowed to exist, it will be created during installation.
+::
+  composer_package "typo3/neos-base-distribution" do
+    action :create_project
+    install_path "/var/www/neos
+  end
+
 
 .. _Packagist : http://packagist.org/
