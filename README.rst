@@ -80,4 +80,11 @@ You can simply use the ``create`` action to build a new ``composer.json`` file f
     config ({"bin-dir" => "/usr/local/bin"})
   end
 
+
+The composer cookbook in action
+=============
+There is a TYPO3 Flow based test plan tool PylonWorks.Essencebase_ wich uses this cookbook to setup a sandbox to provide a consistent environment to the development team.
+
+
+.. _PylonWorks.Essencebase: //github.com/PylonWorks/essencebase-chef-recipe
 .. _Packagist : http://packagist.org/
