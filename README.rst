@@ -72,7 +72,6 @@ The directory is not allowed to exist, it will be created during installation.
 Install packages with custom configuration
 ----------------
 You can simply use the ``create`` action to build a new composer.json file from template and define which packages you would like to install.
-
 ::
   composer_package "Install PHP tools for development" do
     action [:create, :update]
