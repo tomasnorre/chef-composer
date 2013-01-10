@@ -7,6 +7,9 @@ PHP composer chef recipe
 :Homepage: http://www.morphodo.com
 :Tags: PHP, Composer
 
+.. contents:: **Table of Contents**
+  :depth: 3
+
 Install composer
 ================
 
