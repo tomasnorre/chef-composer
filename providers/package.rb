@@ -86,6 +86,23 @@ action :create do
   new_resource.updated_by_last_action(true)
 end
 
+action :dump_autoload do
+  arguments = "--no-interaction --no-ansi -q"
+
+  if new_resource.optimize
+    arguments += " --optimize"
+  end
+
+  execute "composer create-project" do
+    command "composer dump-autoload #{arguments}"
+    cwd new_resource.install_path
+
+    not_if "test -d #{new_resource.install_path}"
+  end
+
+  new_resource.updated_by_last_action(true)
+end
+
 def initialize_arguments(new_resource)
   arguments = "--no-interaction --no-ansi -q"
 

@@ -1,4 +1,4 @@
-actions :install, :update, :create_project, :create
+actions :install, :update, :create_project, :create, :dump_autoload
 
 default_action :install
 
@@ -9,6 +9,7 @@ attribute :dev, :equal_to => [true, false], :default => false
 attribute :optimize_autoloader, :equal_to => [true, false], :default => false
 attribute :no_scripts, :equal_to => [true, false], :default => false
 attribute :verbose, :equal_to => [true, false], :default => false
+attribute :optimize, :equal_to => [true, false], :default => false
 attribute :keep_vcs, :equal_to => [true, false], :default => false
 attribute :stability, :kind_of => String, :default => "stable"
 attribute :repository_url, :kind_of => [String, NilClass]

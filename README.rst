@@ -81,6 +81,18 @@ You can simply use the ``create`` action to build a new ``composer.json`` file f
   end
 
 
+Update `autoload.php`
+=============
+If you need to update the autoloader because of new classes in a classmap package for example, you can use "dump-autoload" to do that without having to go through an install or update.
+
+Additionally, it can dump an optimized autoloader that converts PSR-0 packages into classmap ones for performance reasons. In large applications with many classes, the autoloader can take up a substantial portion of every request's time. Using classmaps for everything is less convenient in development, but using this option you can still use PSR-0 for convenience and classmaps for performance.
+::
+  composer_package "/opt/composer-libaries" do
+    action :dump_autoload
+    optimize true
+  end
+
+
 The composer cookbook in action
 =============
 This cookbook is used to manage the PHP development dependencies easily for PylonWorks.Essencebase_ sandbox environment.
