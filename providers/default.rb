@@ -22,10 +22,8 @@ action :install do
 
 	link "#{new_resource.global_bin_dir}/composer" do
 		to "#{new_resource.target_dir}/composer.phar"
-		owner new_resource.owner
-		group new_resource.group
 
-		only_if new_resource.global
+		only_if {new_resource.global}
 	end
 	new_resource.updated_by_last_action(true)
 
