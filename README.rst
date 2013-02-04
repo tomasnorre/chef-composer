@@ -100,5 +100,5 @@ The composer cookbook in action
 =============
 This cookbook is used to manage the PHP development dependencies easily for PylonWorks.Essencebase_ sandbox environment.
 
-.. _PylonWorks.Essencebase: //github.com/PylonWorks/essencebase-chef-recipe
+.. _PylonWorks.Essencebase: http://github.com/PylonWorks/essencebase-chef-recipe
 .. _Packagist : http://packagist.org/
