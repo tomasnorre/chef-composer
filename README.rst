@@ -98,7 +98,9 @@ Additionally, it can dump an optimized autoloader that converts PSR-0 packages i
 
 The composer cookbook in action
 =============
-This cookbook is used to manage the PHP development dependencies easily for PylonWorks.Essencebase_ sandbox environment.
+- This cookbook is used to manage the PHP development dependencies easily for PylonWorks.Essencebase_ sandbox environment.
+- The cookbook is used as dependency of TYPO3-Flow_ recipe to install TYPO3 Flow easily with chef.
 
 .. _PylonWorks.Essencebase: http://github.com/PylonWorks/essencebase-chef-recipe
 .. _Packagist : http://packagist.org/
+.. _TYPO3-Flow: https://github.com/Morphodo/typo3_flow-chef-recipe
