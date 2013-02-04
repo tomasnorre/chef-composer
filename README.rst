@@ -101,6 +101,28 @@ The composer cookbook in action
 - This cookbook is used to manage the PHP development dependencies easily for PylonWorks.Essencebase_ sandbox environment.
 - The cookbook is used as dependency of TYPO3-Flow_ recipe to install TYPO3 Flow easily with chef.
 
+
+How to get this recipe?
+================
+Using ``Cheffile``
+-----------------
+For detailed usage instructions visit https://github.com/applicationsonline/librarian and folow the README.md.
+
+::
+
+  site 'http://community.opscode.com/api/v1'
+
+  cookbook "composer",
+    :git => "git://github.com/Morphodo/composer.git"
+
+Using ``git clone``
+-----------------
+Just go into your ``cookbooks`` directory and clone this repository.
+
+::
+
+  git clone git://github.com/Morphodo/composer.git
+
 .. _PylonWorks.Essencebase: http://github.com/PylonWorks/essencebase-chef-recipe
 .. _Packagist : http://packagist.org/
 .. _TYPO3-Flow: https://github.com/Morphodo/typo3_flow-chef-recipe
