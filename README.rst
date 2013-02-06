@@ -26,10 +26,23 @@ This lightweight resource provider has the following actions:
 ============   ===============
   Action        Description  
 ============   ===============
-``:install``    Installs the composer
+``:install``    Installs the composer and is the default action
 ``:update``     Update existing composer installation
 ``:remove``     Remove composer if the binary is installed in current working directory
 ============   ===============
+
+This lightweight resource provider has the following attributes:
+
+====================   ===============
+  Attribute             Description  
+====================   ===============
+``:target_dir``         The path where the composer should be installed to
+``:global_bin_dir``     Target directory to link the binary to; Default is set to ``/usr/local/bin``
+``:global``             Enaable the global installation; Default is set to ``true``
+``:owner``              The owner name or group ID that should be changed before running a command. Default value: ``root``.
+``:group``              The group name or group ID that should be changed before running a command. Default value: ``admin``.
+``:source``             Repository location; Default value: ``https://getcomposer.org/composer.phar``
+====================   ===============
 
 To install ``composer`` locally for just a project you can use the LWRP as below.
 ::
