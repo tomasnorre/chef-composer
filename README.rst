@@ -21,6 +21,16 @@ This way composer is installed under ``/opt/composer``, the binary is symlinked 
 
 Local installation
 ----------------
+This lightweight resource provider has the following actions:
+
+============   ===============
+  Action        Description  
+============   ===============
+``:install``    Installs the composer
+``:update``     Update existing composer installation
+``:remove``     Remove composer if the binary is installed in current working directory
+============   ===============
+
 To install ``composer`` locally for just a project you can use the LWRP as below.
 ::
   composer "/var/www/domain/htdocs" do
