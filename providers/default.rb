@@ -6,8 +6,6 @@ action :install do
 		group new_resource.group
 		mode 0755
 		recursive true
-		
-		not_if "test -d #{new_resource.target_dir}"
 	end
 
 	remote_file "#{new_resource.target_dir}/composer.phar" do 
