@@ -81,7 +81,7 @@ This will update all configured packages from ``composer.json``.
     action :update
   end
 
-Install packages without exiting ``composer.json`` file
+Install packages without existing ``composer.json`` file
 ================
 
 Create a new project
