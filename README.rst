@@ -175,6 +175,10 @@ As a Tarball
 If the cookbook needs to downloaded temporarily just to be uploaded to a Chef
 Server or Opscode Hosted Chef, then a tarball installation might fit the bill:
 
+Good to know
+--------------
+If you are looking for `App Entwicklung`_ you can visit Morphodo_ and get in touch.
+
 ::
 
     cd chef-repo/cookbooks
@@ -184,3 +188,5 @@ Server or Opscode Hosted Chef, then a tarball installation might fit the bill:
 .. _PylonWorks.Essencebase: http://github.com/PylonWorks/essencebase-chef-recipe
 .. _Packagist : http://packagist.org/
 .. _TYPO3-Flow: https://github.com/Morphodo/typo3_flow-chef-recipe
+.. _App Entwicklung: http://www.morphodo.com/de/app-entwicklung.html
+.. _Morphodo: http://www.morphodo.com/de/the-web-company.html
