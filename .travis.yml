@@ -12,4 +12,4 @@ branches:
   only:
     - spec
 script:
-  - bundle exec rake unit
+  - rake unit
