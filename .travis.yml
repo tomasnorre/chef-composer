@@ -8,5 +8,8 @@ matrix:
   exclude:
     - rvm: 2.0.0
       gemfile: Gemfile.chef-10
+branches:
+  only:
+    - spec
 script:
   - bundle exec rake unit
