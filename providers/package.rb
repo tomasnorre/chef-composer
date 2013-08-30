@@ -64,7 +64,8 @@ end
 action :create do
   Chef::Log.info("Composer create \"composer.json\" file in path: " + new_resource.install_path)
 
-  directory new_resource.install_path do
+  directory "create directory #{new_resource.install_path}" do
+    path new_resource.install_path
     owner "root"
     group "root"
     mode 0755
