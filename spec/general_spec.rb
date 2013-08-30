@@ -11,9 +11,9 @@ describe 'composer::default' do
     runner.converge('composer::default')
   }
 
-  #it 'install composer globally' do
-  #  expect(runner).to create_directory '/opt/composer'
-  #end
+  it 'install composer globally' do
+    expect(runner).to create_directory '/opt/composer'
+  end
 
   #it 'creates the symlink' do
   #  link = runner.link('composer')
