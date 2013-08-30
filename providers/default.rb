@@ -41,10 +41,10 @@ end
 action :remove do
 	Chef::Log.info("Uninstall composer from location: #{new_resource.target_dir}")
 
-	directory new_resource.target_dir do
-		recursive true
-		action :remove
-	end
+  directory new_resource.target_dir do
+    recursive true
+    action :delete
+  end
 
 	link "#{new_resource.global_bin_dir}/composer" do
 		action :delete

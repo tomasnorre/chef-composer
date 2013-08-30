@@ -53,7 +53,7 @@ action :create_project do
 		arguments += " --repository-url #{new_resource.repository_url}"
 	end
 
-	execute "composer create-project" do
+	execute "composer create-project for #{new_resource.name}" do
 		command "composer create-project #{arguments} #{new_resource.name} #{new_resource.install_path}"
 		not_if "test -d #{new_resource.install_path}"
 	end
@@ -97,7 +97,7 @@ action :dump_autoload do
     arguments += " --optimize"
   end
 
-  execute "composer create-project" do
+  execute "composer create-project on #{new_resource.install_path}" do
     command "composer dump-autoload #{arguments}"
     cwd new_resource.install_path
 
