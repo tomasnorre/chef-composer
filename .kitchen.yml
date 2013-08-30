@@ -1,0 +1,14 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
+
+platforms:
+  - name: ubuntu-10.04
+  - name: ubuntu-12.04
+  - name: ubuntu-12.10
+  - name: ubuntu-13.04
+
+suites:
+  - name: source
+    run_list: ["recipe[composer::default]"]

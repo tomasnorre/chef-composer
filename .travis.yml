@@ -12,5 +12,7 @@ matrix:
 branches:
   only:
     - spec
+before_script:
+  - bundle exec berks install --path vendor/cookbooks
 script:
-  - bundle exec rspec --color --format progress
+  - bundle exec "strainer test --except kitchen"
