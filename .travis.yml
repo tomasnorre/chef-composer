@@ -1,0 +1,12 @@
+rvm:
+  - 1.9.3
+  - 2.0.0
+gemfile:
+  - Gemfile.chef-10
+  - Gemfile.chef-11
+matrix:
+  exclude:
+    - rvm: 2.0.0
+      gemfile: Gemfile.chef-10
+script:
+  - bundle exec rake unit
