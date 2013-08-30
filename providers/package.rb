@@ -67,7 +67,7 @@ action :create do
   directory new_resource.install_path do
     owner "root"
     group "root"
-    mode 00755
+    mode 0755
     recursive true
     action :create
 
