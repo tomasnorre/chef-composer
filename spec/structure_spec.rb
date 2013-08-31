@@ -13,7 +13,7 @@ describe 'composer::default' do
   end
 
   it 'is owned by the root user' do
-    expect(runner.directory(target_dir)).to be_owned_by('root', 'root')
+    expect(runner.directory(target_dir)).to be_owned_by('root', 'www-data')
   end
 
   it 'has 0755 permissions' do
