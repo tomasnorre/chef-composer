@@ -55,7 +55,7 @@ action :create_project do
 
 	execute "composer create-project" do
 		command "composer create-project #{arguments} #{new_resource.name} #{new_resource.install_path}"
-		not_if "test -d #{new_resource.install_path}"
+		not_if { Dir.exists?(new_resource.install_path) && !(Dir.entries(new_resource.install_path) - %w{ . .. }).empty? }
 	end
 
 	new_resource.updated_by_last_action(true)
