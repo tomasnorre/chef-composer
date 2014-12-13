@@ -129,7 +129,7 @@ How to get this recipe?
 ================
 Using ``Cheffile``
 -----------------
-For detailed usage instructions visit https://github.com/applicationsonline/librarian and folow the README.md.
+For detailed usage instructions visit https://github.com/applicationsonline/librarian and follow the README.md.
 
 ::
 
