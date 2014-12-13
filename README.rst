@@ -101,7 +101,7 @@ You can simply use the ``create`` action to build a new ``composer.json`` file f
 ::
   composer_package "Install PHP tools for development" do
     action [:create, :update]
-    install_path "/opt/composer-libaries"
+    install_path "/opt/composer-libraries"
     packages ({"phpunit/phpunit" => "3.7.*", "phing/phing" => "2.4.*"})
     config ({"bin-dir" => "/usr/local/bin"})
   end
@@ -113,7 +113,7 @@ If you need to update the autoloader because of new classes in a classmap packag
 
 Additionally, it can dump an optimized autoloader that converts PSR-0 packages into classmap ones for performance reasons. In large applications with many classes, the autoloader can take up a substantial portion of every request's time. Using classmaps for everything is less convenient in development, but using this option you can still use PSR-0 for convenience and classmaps for performance.
 ::
-  composer_package "/opt/composer-libaries" do
+  composer_package "/opt/composer-libraries" do
     action :dump_autoload
     optimize true
   end
