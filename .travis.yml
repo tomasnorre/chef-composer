@@ -1,0 +1,8 @@
+language: ruby
+gemfile:
+   - tests/Gemfile
+rvm:
+  - 2.2.2
+script:
+  - bundle exec rubocop
+  - bundle exec foodcritic -f any .
