@@ -2,7 +2,7 @@ actions :install, :update, :create_project, :create, :dump_autoload
 
 default_action :install
 
-attribute :install_path, :kind_of => [String, NilClass], :name_attribute => true, :default => "/opt/composer-libraries"
+attribute :install_path, :kind_of => [String, NilClass], :default => "/opt/composer-libraries"
 attribute :user, :kind_of => [String, Integer], :default => "root"
 attribute :group, :kind_of => [String, Integer], :default => "admin"
 attribute :prefer_source, :kind_of => [String, NilClass]
