@@ -8,7 +8,7 @@ action :install do
 		cwd new_resource.install_path
 		command "composer install #{arguments}"
 
-		only_if "composer help"
+		only_if 'composer help'
 	end
 
 	new_resource.updated_by_last_action(true)
@@ -18,13 +18,13 @@ action :update do
 	Chef::Log.info("Update package: #{new_resource.name}")
   arguments = initialize_arguments(new_resource)
 
-	execute "update-composer-packages" do
+	execute 'update-composer-packages' do
 		user new_resource.user
 		group new_resource.group
 		cwd new_resource.install_path
 		command "composer update #{arguments}"
 
-		only_if "composer help"
+		only_if 'composer help'
 	end
 
 	new_resource.updated_by_last_action(true)
@@ -35,25 +35,25 @@ action :create_project do
 	Chef::Log.info("Composer create-project: #{new_resource.name}")
 
 	if new_resource.dev
-		arguments += " --dev"
+		arguments += ' --dev'
 	end
 	if new_resource.prefer_source
-		arguments += " --prefer-source"
+		arguments += ' --prefer-source'
 	end
 	if new_resource.prefer_dist
-		arguments += " --prefer-dist"
+		arguments += ' --prefer-dist'
 	end
 	if new_resource.keep_vcs
-		arguments += " --keep-vcs"
+		arguments += ' --keep-vcs'
 	end
 	if new_resource.no_scripts
-		arguments += " --no-scripts"
+		arguments += ' --no-scripts'
 	end
 	if new_resource.repository_url
 		arguments += " --repository-url #{new_resource.repository_url}"
 	end
 
-	execute "composer create-project" do
+	execute 'composer create-project' do
 		command "composer create-project #{arguments} #{new_resource.name} #{new_resource.install_path}"
 		not_if { Dir.exists?(new_resource.install_path) && !(Dir.entries(new_resource.install_path) - %w{ . .. }).empty? }
 	end
@@ -62,11 +62,11 @@ action :create_project do
 end
 
 action :create do
-  Chef::Log.info("Composer create \"composer.json\" file in path: " + new_resource.install_path)
+  Chef::Log.info('Composer create "composer.json" file in path: ' + new_resource.install_path)
 
   directory new_resource.install_path do
-    owner "root"
-    group "root"
+    owner 'root'
+    group 'root'
     mode 0755
     recursive true
     action :create
@@ -75,8 +75,8 @@ action :create do
   end
 
   template "composer.json.erb for #{new_resource.install_path}" do
-    source "composer.json.erb"
-    cookbook "composer"
+    source 'composer.json.erb'
+    cookbook 'composer'
     path "#{new_resource.install_path}/composer.json"
     mode 0644
     variables(
@@ -91,13 +91,13 @@ action :create do
 end
 
 action :dump_autoload do
-  arguments = "--no-interaction --no-ansi -q"
+  arguments = '--no-interaction --no-ansi -q'
 
   if new_resource.optimize
-    arguments += " --optimize"
+    arguments += ' --optimize'
   end
 
-  execute "composer create-project" do
+  execute 'composer create-project' do
     command "composer dump-autoload #{arguments}"
     cwd new_resource.install_path
 
@@ -108,27 +108,27 @@ action :dump_autoload do
 end
 
 def initialize_arguments(new_resource)
-  arguments = "--no-interaction --no-ansi -q"
+  arguments = '--no-interaction --no-ansi -q'
 
   if new_resource.verbose
-    arguments = " --no-interaction --verbose"
+    arguments = ' --no-interaction --verbose'
   end
   if new_resource.dev
-    arguments += " --dev"
+    arguments += ' --dev'
   else
-    arguments += " --no-dev"
+    arguments += ' --no-dev'
   end
   if new_resource.prefer_source
-    arguments += " --prefer-source"
+    arguments += ' --prefer-source'
   end
   if new_resource.prefer_dist
-    arguments += " --prefer-dist"
+    arguments += ' --prefer-dist'
   end
   if new_resource.optimize_autoloader
-    arguments += " --optimize-autoloader"
+    arguments += ' --optimize-autoloader'
   end
   if new_resource.no_scripts
-    arguments += " --no-scripts"
+    arguments += ' --no-scripts'
   end
   arguments
 end
